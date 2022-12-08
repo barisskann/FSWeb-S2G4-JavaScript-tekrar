@@ -158,17 +158,19 @@ siralisayilar = () => {
 tekraredensayilar = () => {
   const bosDizi = [];
   const render = sayilar.map((item) => {
-    let degisken = 1;
+    let degisken = 0;
     sayilar.map((sayac, index) => {
       if (item === sayac) {
         degisken = degisken + 1;
         sayilar.splice(index, 1);
       }
-    });
-	  const sonuc = `${item} sayısı ${degisken} kere tekrar edilmiştir.`;
-	  bosDizi.push(sonuc)
-    console.log(bosDizi);
+    }); if (degisken > 1) {
+      const sonuc = `${item} sayısı ${degisken} kere tekrar edilmiştir.`;
+      bosDizi.push(sonuc)
+    }
+    
   });
+  console.log(bosDizi);
 };
 tekraredensayilar();
 //  degisken = false;
